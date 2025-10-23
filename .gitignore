@@ -1,0 +1,258 @@
+# ==================================
+# ARCHIVOS DEL SISTEMA OPERATIVO
+# ==================================
+
+# Windows
+desktop.ini
+Thumbs.db
+ehthumbs.db
+*.lnk
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.tmp
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==================================
+# ARCHIVOS DE GOOGLE DRIVE
+# ==================================
+
+# Archivos de sincronización de Drive
+.~lock.*
+~$*
+*.tmp
+.dropbox
+.dropbox.attr
+.dropbox.cache
+
+# Archivos de Office temporales
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+*.tmp
+
+# ==================================
+# ARCHIVOS DE PYTHON
+# ==================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# ==================================
+# EDITORES E IDEs
+# ==================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# ==================================
+# ARCHIVOS DE CONFIGURACIÓN LOCAL
+# ==================================
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Configuraciones locales
+config.local.py
+settings.local.py
+local_settings.py
+
+# ==================================
+# ARCHIVOS DE LOG Y BASE DE DATOS
+# ==================================
+
+# Logs
+*.log
+logs/
+log/
+
+# Bases de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# ==================================
+# ARCHIVOS ESPECÍFICOS DEL PROYECTO
+# ==================================
+
+# Archivos de respaldo
+*.bak
+*.backup
+*.old
+*_backup.*
+*_old.*
+
+# Archivos de prueba temporal
+test_temp/
+temp/
+tmp/
+
+# Archivos de documentación compilada
+docs/_build/
+site/
+
+# ==================================
+# ARCHIVOS MULTIMEDIA GRANDES
+# ==================================
+
+# Imágenes grandes (opcional, descomentar si no quieres subir imágenes grandes)
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.bmp
+# *.svg
+
+# Videos (opcional)
+# *.mp4
+# *.avi
+# *.mov
+# *.wmv
+
+# ==================================
+# OTROS
+# ==================================
+
+# Archivos comprimidos temporales
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Certificados y claves (IMPORTANTE: nunca subir estos)
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+
+# Credenciales
+credentials.json
+token.json
+secrets.json
+
+# ==================================
+# CARPETAS PERSONALIZADAS (opcional)
+# ==================================
+
+# Si tienes carpetas específicas que no quieres subir
+# ejemplos/
+# pruebas_personales/
+# borrador/
