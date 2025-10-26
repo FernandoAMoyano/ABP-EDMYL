@@ -15,19 +15,20 @@ from conjuntos import GestorConjuntos
 from conteo import AnalizadorConteo
 from logica import SistemaLogico
 import os
+from typing import List
 
 
-def limpiar_pantalla():
+def limpiar_pantalla() -> None:
     """Limpia la consola"""
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def pausa():
+def pausa() -> None:
     """Pausa hasta que el usuario presione Enter"""
     input("\nPresiona Enter para continuar...")
 
 
-def mostrar_banner():
+def mostrar_banner() -> None:
     """Muestra el banner del sistema"""
     print("""
 ╔══════════════════════════════════════════════════════════╗
@@ -40,7 +41,7 @@ def mostrar_banner():
     """)
 
 
-def mostrar_menu_principal():
+def mostrar_menu_principal() -> None:
     """Muestra el menú principal"""
     print("\n" + "=" * 60)
     print("                    MENÚ PRINCIPAL")
@@ -58,7 +59,7 @@ def mostrar_menu_principal():
     print("=" * 60)
 
 
-def menu_agregar_artefacto(gestor):
+def menu_agregar_artefacto(gestor: GestorConjuntos) -> None:
     """Menú para agregar un nuevo artefacto"""
     limpiar_pantalla()
     print("\n" + "=" * 60)
@@ -109,7 +110,7 @@ def menu_agregar_artefacto(gestor):
     pausa()
 
 
-def menu_ver_artefactos(gestor):
+def menu_ver_artefactos(gestor: GestorConjuntos) -> None:
     """Muestra todos los artefactos registrados"""
     limpiar_pantalla()
     print("\n" + "=" * 60)
@@ -136,7 +137,7 @@ def menu_ver_artefactos(gestor):
     pausa()
 
 
-def menu_consultas_conjuntos(gestor):
+def menu_consultas_conjuntos(gestor: GestorConjuntos) -> None:
     """Menú de operaciones con conjuntos"""
     while True:
         limpiar_pantalla()
@@ -182,7 +183,7 @@ def menu_consultas_conjuntos(gestor):
             pausa()
 
 
-def consulta_por_ubicacion(gestor):
+def consulta_por_ubicacion(gestor: GestorConjuntos) -> None:
     """Consulta artefactos por ubicación"""
     limpiar_pantalla()
     print("\n📍 CONSULTA POR UBICACIÓN\n")
@@ -198,7 +199,7 @@ def consulta_por_ubicacion(gestor):
     pausa()
 
 
-def consulta_por_tipo(gestor):
+def consulta_por_tipo(gestor: GestorConjuntos) -> None:
     """Consulta artefactos por tipo"""
     limpiar_pantalla()
     print("\n🔧 CONSULTA POR TIPO\n")
@@ -214,7 +215,7 @@ def consulta_por_tipo(gestor):
     pausa()
 
 
-def consulta_por_consumo(gestor):
+def consulta_por_consumo(gestor: GestorConjuntos) -> None:
     """Consulta artefactos por nivel de consumo"""
     limpiar_pantalla()
     print("\n⚡ CONSULTA POR NIVEL DE CONSUMO\n")
@@ -229,7 +230,7 @@ def consulta_por_consumo(gestor):
     pausa()
 
 
-def operacion_union(gestor):
+def operacion_union(gestor: GestorConjuntos) -> None:
     """Realiza operación de unión entre dos conjuntos"""
     limpiar_pantalla()
     print("\n∪ OPERACIÓN: UNIÓN (A ∪ B)\n")
@@ -252,7 +253,7 @@ def operacion_union(gestor):
     pausa()
 
 
-def operacion_interseccion(gestor):
+def operacion_interseccion(gestor: GestorConjuntos) -> None:
     """Realiza operación de intersección entre dos conjuntos"""
     limpiar_pantalla()
     print("\n∩ OPERACIÓN: INTERSECCIÓN (A ∩ B)\n")
@@ -273,7 +274,7 @@ def operacion_interseccion(gestor):
     pausa()
 
 
-def operacion_diferencia(gestor):
+def operacion_diferencia(gestor: GestorConjuntos) -> None:
     """Realiza operación de diferencia entre dos conjuntos"""
     limpiar_pantalla()
     print("\n- OPERACIÓN: DIFERENCIA (A - B)\n")
@@ -294,7 +295,7 @@ def operacion_diferencia(gestor):
     pausa()
 
 
-def operacion_complemento(gestor):
+def operacion_complemento(gestor: GestorConjuntos) -> None:
     """Realiza operación de complemento"""
     limpiar_pantalla()
     print("\n¬ OPERACIÓN: COMPLEMENTO (U - A)\n")
@@ -314,21 +315,23 @@ def operacion_complemento(gestor):
     pausa()
 
 
-def menu_analisis_estadistico(conteo):
+def menu_analisis_estadistico(conteo: AnalizadorConteo) -> None:
     """Menú de análisis estadístico"""
     limpiar_pantalla()
     print(conteo.generar_reporte_estadistico())
     pausa()
 
 
-def menu_sistema_logico(sistema_logico):
+def menu_sistema_logico(sistema_logico: SistemaLogico) -> None:
     """Menú del sistema de recomendaciones"""
     limpiar_pantalla()
     print(sistema_logico.generar_reporte_logico())
     pausa()
 
 
-def generar_reporte_completo(gestor, conteo, logica):
+def generar_reporte_completo(
+    gestor: GestorConjuntos, conteo: AnalizadorConteo, logica: SistemaLogico
+) -> None:
     """Genera un reporte completo del sistema"""
     limpiar_pantalla()
 
@@ -367,12 +370,12 @@ def generar_reporte_completo(gestor, conteo, logica):
     pausa()
 
 
-def cargar_datos_ejemplo(gestor):
+def cargar_datos_ejemplo(gestor: GestorConjuntos) -> None:
     """Carga datos de ejemplo para pruebas"""
     limpiar_pantalla()
     print("\n🔄 Cargando datos de ejemplo...\n")
 
-    ejemplos = [
+    ejemplos: List[Artefacto] = [
         Artefacto("Heladera", 150, 24, "Cocina", "Electrodoméstico"),
         Artefacto("Microondas", 1200, 0.5, "Cocina", "Electrodoméstico"),
         Artefacto("Aire Acondicionado", 2000, 8, "Dormitorio", "Climatización"),
@@ -392,7 +395,7 @@ def cargar_datos_ejemplo(gestor):
     pausa()
 
 
-def main():
+def main() -> None:
     """Función principal del programa"""
     # Inicializar componentes
     gestor = GestorConjuntos()
