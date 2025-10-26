@@ -9,19 +9,25 @@ CONCEPTOS MATEMÁTICOS APLICADOS:
 - Reglas de inferencia (Modus Ponens, Modus Tollens)
 """
 
+from typing import List, Optional, Tuple
+from conjuntos import GestorConjuntos
+from conteo import AnalizadorConteo
+
 
 class SistemaLogico:
     """
     Sistema de recomendaciones basado en lógica proposicional
     """
 
-    def __init__(self, gestor_conjuntos, analizador_conteo):
-        self.gestor = gestor_conjuntos
-        self.conteo = analizador_conteo
+    def __init__(
+        self, gestor_conjuntos: GestorConjuntos, analizador_conteo: AnalizadorConteo
+    ) -> None:
+        self.gestor: GestorConjuntos = gestor_conjuntos
+        self.conteo: AnalizadorConteo = analizador_conteo
 
     # ==================== PROPOSICIONES SIMPLES ====================
 
-    def prop_consumo_alto(self, umbral=300):
+    def prop_consumo_alto(self, umbral: float = 300) -> bool:
         """
         Proposición p: "El consumo mensual es mayor a umbral kWh"
 
@@ -34,7 +40,7 @@ class SistemaLogico:
         consumo_total = self.conteo.consumo_total_mensual()
         return consumo_total > umbral
 
-    def prop_muchos_artefactos_alto_consumo(self, umbral=2):
+    def prop_muchos_artefactos_alto_consumo(self, umbral: int = 2) -> bool:
         """
         Proposición q: "Hay más de N artefactos de alto consumo"
 
@@ -47,7 +53,7 @@ class SistemaLogico:
         alto_consumo = self.gestor.obtener_por_nivel_consumo("ALTO")
         return len(alto_consumo) > umbral
 
-    def prop_ubicacion_critica(self, ubicacion, umbral_kwh=50):
+    def prop_ubicacion_critica(self, ubicacion: str, umbral_kwh: float = 50) -> bool:
         """
         Proposición r: "Una ubicación tiene consumo crítico"
 
@@ -61,7 +67,7 @@ class SistemaLogico:
         consumo_ubicacion = self.conteo.consumo_por_ubicacion()
         return consumo_ubicacion.get(ubicacion, 0) > umbral_kwh
 
-    def prop_artefactos_simultaneos_criticos(self, ubicacion):
+    def prop_artefactos_simultaneos_criticos(self, ubicacion: str) -> bool:
         """
         Proposición s: "En una ubicación hay múltiples artefactos de alto consumo"
 
@@ -79,28 +85,28 @@ class SistemaLogico:
 
     # ==================== CONECTIVOS LÓGICOS ====================
 
-    def conjuncion(self, p, q):
+    def conjuncion(self, p: bool, q: bool) -> bool:
         """
         Conjunción: p ∧ q (AND)
         Verdadero solo si ambas proposiciones son verdaderas
         """
         return p and q
 
-    def disyuncion(self, p, q):
+    def disyuncion(self, p: bool, q: bool) -> bool:
         """
         Disyunción: p ∨ q (OR)
         Verdadero si al menos una proposición es verdadera
         """
         return p or q
 
-    def negacion(self, p):
+    def negacion(self, p: bool) -> bool:
         """
         Negación: ¬p (NOT)
         Invierte el valor de verdad
         """
         return not p
 
-    def implicacion(self, p, q):
+    def implicacion(self, p: bool, q: bool) -> bool:
         """
         Implicación: p → q
         Falso solo cuando p es verdadero y q es falso
@@ -110,7 +116,7 @@ class SistemaLogico:
 
     # ==================== REGLAS DE INFERENCIA ====================
 
-    def modus_ponens(self, p, implicacion_pq):
+    def modus_ponens(self, p: bool, implicacion_pq: bool) -> Optional[bool]:
         """
         Modus Ponens: [(p → q) ∧ p] → q
         Si p implica q, y p es verdad, entonces q es verdad
@@ -120,7 +126,7 @@ class SistemaLogico:
             implicacion_pq (bool): p → q
 
         Returns:
-            bool: Conclusión q
+            bool or None: Conclusión q
         """
         if p and implicacion_pq:
             return True
@@ -128,7 +134,7 @@ class SistemaLogico:
 
     # ==================== SISTEMA DE ALERTAS ====================
 
-    def evaluar_nivel_alerta(self):
+    def evaluar_nivel_alerta(self) -> str:
         """
         Evalúa el nivel de alerta usando lógica proposicional
 
@@ -151,7 +157,7 @@ class SistemaLogico:
         else:  # ¬(p ∨ q)
             return "NORMAL"
 
-    def identificar_ubicaciones_criticas(self):
+    def identificar_ubicaciones_criticas(self) -> List[str]:
         """
         Identifica ubicaciones con consumo crítico
 
@@ -171,12 +177,12 @@ class SistemaLogico:
 
     # ==================== SISTEMA DE RECOMENDACIONES ====================
 
-    def generar_recomendaciones(self):
+    def generar_recomendaciones(self) -> Tuple[List[str], str]:
         """
         Genera recomendaciones personalizadas usando reglas lógicas
 
         Returns:
-            list: Lista de recomendaciones
+            tuple: (lista de recomendaciones, nivel de alerta)
         """
         recomendaciones = []
 
@@ -232,7 +238,7 @@ class SistemaLogico:
 
         return recomendaciones, nivel_alerta
 
-    def generar_reporte_logico(self):
+    def generar_reporte_logico(self) -> str:
         """
         Genera un reporte completo del análisis lógico
 
