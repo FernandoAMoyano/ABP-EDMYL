@@ -9,16 +9,19 @@ CONCEPTOS MATEMÁTICOS APLICADOS:
 - Estadísticas descriptivas
 """
 
+from typing import Dict, List, Tuple
+from conjuntos import GestorConjuntos
+
 
 class AnalizadorConteo:
     """
     Realiza análisis de conteo y estadísticas sobre los artefactos
     """
 
-    def __init__(self, gestor_conjuntos):
-        self.gestor = gestor_conjuntos
+    def __init__(self, gestor_conjuntos: GestorConjuntos) -> None:
+        self.gestor: GestorConjuntos = gestor_conjuntos
 
-    def contar_por_ubicacion(self):
+    def contar_por_ubicacion(self) -> Dict[str, int]:
         """
         Cuenta artefactos por ubicación
 
@@ -31,7 +34,7 @@ class AnalizadorConteo:
             conteo[ubicacion] = len(conjunto)
         return conteo
 
-    def contar_por_tipo(self):
+    def contar_por_tipo(self) -> Dict[str, int]:
         """
         Cuenta artefactos por tipo
 
@@ -44,7 +47,7 @@ class AnalizadorConteo:
             conteo[tipo] = len(conjunto)
         return conteo
 
-    def contar_por_nivel_consumo(self):
+    def contar_por_nivel_consumo(self) -> Dict[str, int]:
         """
         Cuenta artefactos por nivel de consumo
 
@@ -57,7 +60,7 @@ class AnalizadorConteo:
             conteo[nivel] = len(conjunto)
         return conteo
 
-    def calcular_porcentajes_consumo(self):
+    def calcular_porcentajes_consumo(self) -> Dict[str, float]:
         """
         Calcula porcentajes por nivel de consumo
 
@@ -72,7 +75,7 @@ class AnalizadorConteo:
 
         return {nivel: (cantidad / total) * 100 for nivel, cantidad in conteo.items()}
 
-    def consumo_total_mensual(self):
+    def consumo_total_mensual(self) -> float:
         """
         Calcula el consumo mensual total de todos los artefactos
 
@@ -84,7 +87,7 @@ class AnalizadorConteo:
             total += artefacto.consumo_mensual()
         return total
 
-    def consumo_por_ubicacion(self):
+    def consumo_por_ubicacion(self) -> Dict[str, float]:
         """
         Calcula consumo mensual agrupado por ubicación
 
@@ -100,7 +103,7 @@ class AnalizadorConteo:
             )
         return consumo
 
-    def consumo_por_tipo(self):
+    def consumo_por_tipo(self) -> Dict[str, float]:
         """
         Calcula consumo mensual agrupado por tipo
 
@@ -116,7 +119,7 @@ class AnalizadorConteo:
             )
         return consumo
 
-    def mayores_consumidores(self, n=5):
+    def mayores_consumidores(self, n: int = 5) -> List[Tuple[str, float]]:
         """
         Identifica los N artefactos con mayor consumo
 
@@ -133,7 +136,7 @@ class AnalizadorConteo:
         consumos_ordenados = sorted(consumos, key=lambda x: x[1], reverse=True)
         return consumos_ordenados[:n]
 
-    def generar_reporte_estadistico(self):
+    def generar_reporte_estadistico(self) -> str:
         """
         Genera un reporte estadístico completo
 
