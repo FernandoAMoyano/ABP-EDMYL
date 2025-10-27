@@ -10,7 +10,7 @@ CONCEPTOS MATEMÁTICOS APLICADOS:
 """
 
 from typing import Dict, List, Tuple
-from conjuntos import GestorConjuntos
+from .conjuntos import GestorConjuntos
 
 
 class AnalizadorConteo:

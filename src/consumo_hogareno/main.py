@@ -5,17 +5,20 @@ Proyecto ABP - Elementos de Matemática y Lógica
 Aplicación de: Conjuntos, Conteo y Lógica Proposicional
 
 Autor:
-
 - Fernando Agustín Moyano
-
 """
 
-from artefacto import Artefacto
-from conjuntos import GestorConjuntos
-from conteo import AnalizadorConteo
-from logica import SistemaLogico
 import os
+import sys
 from typing import List
+
+# Agregar el directorio src al path para los imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
+from consumo_hogareno.models.artefacto import Artefacto
+from consumo_hogareno.services.conjuntos import GestorConjuntos
+from consumo_hogareno.services.conteo import AnalizadorConteo
+from consumo_hogareno.services.logica import SistemaLogico
 
 
 def limpiar_pantalla() -> None:

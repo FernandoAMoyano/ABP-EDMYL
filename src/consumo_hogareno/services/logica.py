@@ -10,8 +10,8 @@ CONCEPTOS MATEMÁTICOS APLICADOS:
 """
 
 from typing import List, Optional, Tuple
-from conjuntos import GestorConjuntos
-from conteo import AnalizadorConteo
+from .conjuntos import GestorConjuntos
+from .conteo import AnalizadorConteo
 
 
 class SistemaLogico:

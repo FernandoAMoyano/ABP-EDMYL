@@ -3,10 +3,10 @@ Test básico del sistema - Verificación rápida de funcionalidad
 Este archivo permite probar el sistema sin usar el menú interactivo
 """
 
-from artefacto import Artefacto
-from conjuntos import GestorConjuntos
-from conteo import AnalizadorConteo
-from logica import SistemaLogico
+from src.consumo_hogareno import Artefacto
+from src.consumo_hogareno import GestorConjuntos
+from src.consumo_hogareno import AnalizadorConteo
+from src.consumo_hogareno import SistemaLogico
 
 
 def test_sistema():

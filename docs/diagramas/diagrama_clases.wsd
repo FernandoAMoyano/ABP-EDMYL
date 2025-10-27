@@ -1,0 +1,146 @@
+@startuml Diagrama de Clases - Sistema de Monitoreo de Consumo Hogareño
+
+' Configuración de estilo
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    ArrowColor #2C5F77
+}
+
+' Clase Artefacto
+class Artefacto {
+    - nombre: str
+    - watts: float
+    - horas_dia: float
+    - ubicacion: str
+    - tipo: str
+    
+    + __init__(nombre: str, watts: float, horas_dia: float, ubicacion: str, tipo: str) -> None
+    + consumo_diario() -> float
+    + consumo_mensual() -> float
+    + nivel_consumo() -> Literal['ALTO', 'MEDIO', 'BAJO']
+    + info_completa() -> str
+    + __str__() -> str
+    + __repr__() -> str
+}
+
+' Clase GestorConjuntos
+class GestorConjuntos {
+    - universo: Set[str]
+    - artefactos_dict: Dict[str, Artefacto]
+    
+    + __init__() -> None
+    + agregar_artefacto(artefacto: Artefacto) -> None
+    + obtener_por_ubicacion(ubicacion: str) -> Set[str]
+    + obtener_por_tipo(tipo: str) -> Set[str]
+    + obtener_por_nivel_consumo(nivel: str) -> Set[str]
+    + union(conjunto_a: Set[str], conjunto_b: Set[str]) -> Set[str]
+    + interseccion(conjunto_a: Set[str], conjunto_b: Set[str]) -> Set[str]
+    + diferencia(conjunto_a: Set[str], conjunto_b: Set[str]) -> Set[str]
+    + complemento(conjunto_a: Set[str]) -> Set[str]
+    + cardinalidad(conjunto: Set[str]) -> int
+    + obtener_todas_ubicaciones() -> Set[str]
+    + obtener_todos_tipos() -> Set[str]
+    + mostrar_conjunto(conjunto: Set[str], titulo: str) -> None
+    + obtener_artefacto(nombre: str) -> Optional[Artefacto]
+}
+
+' Clase AnalizadorConteo
+class AnalizadorConteo {
+    - gestor: GestorConjuntos
+    
+    + __init__(gestor_conjuntos: GestorConjuntos) -> None
+    + contar_por_ubicacion() -> Dict[str, int]
+    + contar_por_tipo() -> Dict[str, int]
+    + contar_por_nivel_consumo() -> Dict[str, int]
+    + calcular_porcentajes_consumo() -> Dict[str, float]
+    + consumo_total_mensual() -> float
+    + consumo_por_ubicacion() -> Dict[str, float]
+    + consumo_por_tipo() -> Dict[str, float]
+    + mayores_consumidores(n: int) -> List[Tuple[str, float]]
+    + generar_reporte_estadistico() -> str
+}
+
+' Clase SistemaLogico
+class SistemaLogico {
+    - gestor: GestorConjuntos
+    - conteo: AnalizadorConteo
+    
+    + __init__(gestor_conjuntos: GestorConjuntos, analizador_conteo: AnalizadorConteo) -> None
+    + prop_consumo_alto(umbral: float) -> bool
+    + prop_muchos_artefactos_alto_consumo(umbral: int) -> bool
+    + prop_ubicacion_critica(ubicacion: str, umbral_kwh: float) -> bool
+    + prop_artefactos_simultaneos_criticos(ubicacion: str) -> bool
+    + conjuncion(p: bool, q: bool) -> bool
+    + disyuncion(p: bool, q: bool) -> bool
+    + negacion(p: bool) -> bool
+    + implicacion(p: bool, q: bool) -> bool
+    + modus_ponens(p: bool, implicacion_pq: bool) -> Optional[bool]
+    + evaluar_nivel_alerta() -> str
+    + identificar_ubicaciones_criticas() -> List[str]
+    + generar_recomendaciones() -> Tuple[List[str], str]
+    + generar_reporte_logico() -> str
+}
+
+' Relaciones entre clases
+GestorConjuntos "1" *-- "0..*" Artefacto : gestiona >
+AnalizadorConteo "1" --> "1" GestorConjuntos : usa >
+SistemaLogico "1" --> "1" GestorConjuntos : usa >
+SistemaLogico "1" --> "1" AnalizadorConteo : usa >
+
+' Notas explicativas
+note right of Artefacto
+    <b>Representa un artefacto eléctrico</b>
+    
+    Aplica:
+    • Fórmula: Potencia × Tiempo = Energía
+    • Clasificación por niveles de consumo
+    • Cálculos de consumo diario/mensual
+end note
+
+note right of GestorConjuntos
+    <b>Teoría de Conjuntos</b>
+    
+    Operaciones matemáticas:
+    • Unión (∪)
+    • Intersección (∩)
+    • Diferencia (-)
+    • Complemento (¬)
+    • Cardinalidad (|A|)
+end note
+
+note right of AnalizadorConteo
+    <b>Principios de Conteo</b>
+    
+    Aplica:
+    • Cardinalidad de conjuntos
+    • Principio de inclusión-exclusión
+    • Porcentajes y proporciones
+    • Estadísticas descriptivas
+end note
+
+note right of SistemaLogico
+    <b>Lógica Proposicional</b>
+    
+    Aplica:
+    • Conectivos lógicos (∧, ∨, ¬, →)
+    • Tablas de verdad
+    • Reglas de inferencia
+    • Modus Ponens
+end note
+
+' Leyenda
+legend bottom
+    <b>Sistema de Monitoreo Inteligente de Consumo Hogareño</b>
+    
+    Proyecto ABP - Elementos de Matemática y Lógica
+    Autor: Fernando Agustín Moyano
+    
+    <b>Conceptos Matemáticos Aplicados:</b>
+    • Teoría de Conjuntos
+    • Principios de Conteo
+    • Lógica Proposicional
+end legend
+
+@enduml

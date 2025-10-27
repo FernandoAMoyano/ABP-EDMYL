@@ -10,7 +10,7 @@ CONCEPTOS MATEMÁTICOS APLICADOS:
 """
 
 from typing import Set, Dict, Optional
-from artefacto import Artefacto
+from ..models.artefacto import Artefacto
 
 
 class GestorConjuntos:
