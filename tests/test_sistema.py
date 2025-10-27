@@ -4,10 +4,10 @@ Archivo de pruebas para verificar el correcto funcionamiento del sistema
 Este archivo puede ejecutarse para validar que todos los módulos funcionen correctamente
 """
 
-from src.consumo_hogareno.models import Artefacto
-from src.consumo_hogareno.services import GestorConjuntos
-from src.consumo_hogareno.services import AnalizadorConteo
-from src.consumo_hogareno.services import SistemaLogico
+from consumo_hogareno.models.artefacto import Artefacto
+from consumo_hogareno.services.conjuntos import GestorConjuntos
+from consumo_hogareno.services.conteo import AnalizadorConteo
+from consumo_hogareno.services.logica import SistemaLogico
 
 
 def test_artefacto():
