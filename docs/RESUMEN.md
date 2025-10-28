@@ -26,7 +26,7 @@
 
 ---
 
-## 🎯 Conceptos Matemáticos Implementados
+## Conceptos Matemáticos Implementados
 
 ### 1. Teoría de Conjuntos
 
@@ -119,7 +119,7 @@
 
 ---
 
-## 📊 Nivel de Complejidad
+## Nivel de Complejidad
 
 ### Básico
 
@@ -137,14 +137,6 @@
 - Formateo de strings avanzado
 - Operadores de conjuntos de Python
 
-### NO incluido (mantiene simplicidad)
-
-- Librerías externas complejas
-- Bases de datos
-- Interfaces gráficas
-- Programación asíncrona
-- APIs web
-
 ---
 
 ## Tests Rápidos
@@ -160,7 +152,7 @@ Debe mostrar: Python 3.x.x
 ### Test 2: Verificar código sin errores
 
 ```bash
-python test_basico.py
+python tests/test_basico.py
 ```
 
 Debe completar sin errores.
@@ -168,7 +160,7 @@ Debe completar sin errores.
 ### Test 3: Ejecutar programa
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 Debe mostrar menú principal.
@@ -178,19 +170,6 @@ Debe mostrar menú principal.
 1. Opción 7 (cargar ejemplos)
 2. Opción 6 (reporte completo)
 3. Verificar que todo se muestre correctamente
-
----
-
-## Puntos Fuertes del Proyecto
-
-1. **Vinculación real** entre matemática y código
-2. **Aplicación práctica** a problema cotidiano
-3. **Código limpio** y bien documentado
-4. **Funcionalidad completa** según objetivos
-5. **Sin dependencias** externas (portable)
-6. **Nivel apropiado** para la materia
-7. **Documentación**
-8. **Ejemplos claros** de cada concepto
 
 ---
 
@@ -237,11 +216,7 @@ Debe mostrar menú principal.
 **Carrera:** Tecnicatura Superior en Desarrollo de Software
 **Materia:** Elementos de Matemática y Lógica
 **Tipo:** Proyecto ABP (Aprendizaje Basado en Proyectos)
-
-**Autor:**
-
-- Fernando Agustín Moyano
-
-**Fecha:** 2025
+**Autor:** Fernando Agustín Moyano
+**Fecha:** Octubre 2025
 
 ---

@@ -17,7 +17,7 @@ Deberías ver algo como: `Python 3.x.x`
 ### Paso 2: Ejecutar el programa
 
 ```bash
-python main.py
+python  src/main.py
 ```
 
 ---
@@ -27,7 +27,7 @@ python main.py
 Si quieres verificar que todo funciona antes de usar el menú:
 
 ```bash
-python test_basico.py
+python tests/test_basico.py
 ```
 
 Este test automático verifica todas las funcionalidades.
@@ -38,13 +38,13 @@ Este test automático verifica todas las funcionalidades.
 
 ### Opción A: Usar datos de ejemplo
 
-1. Ejecuta `python main.py`
+1. Ejecuta `python src/main.py`
 2. Selecciona opción **7** (Cargar datos de ejemplo)
 3. Ahora puedes explorar todas las funcionalidades
 
 ### Opción B: Ingresar tus propios datos
 
-1. Ejecuta `python main.py`
+1. Ejecuta `python src/main.py`
 2. Selecciona opción **1** (Agregar artefacto)
 3. Completa los datos de cada artefacto
 

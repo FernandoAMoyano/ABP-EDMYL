@@ -122,13 +122,61 @@ Entonces: ALERTA CRÍTICA
 ```
 ABP-Matemática/
 │
-├── 🗒️artefacto.py          # Clase Artefacto con cálculos de consumo
-├── 🗒️conjuntos.py          # Gestión mediante teoría de conjuntos
-├── 🗒️conteo.py             # Análisis estadístico y conteo
-├── 🗒️logica.py             # Sistema de recomendaciones (lógica)
-├── 🗒️main.py               # Programa principal con menú interactivo
-└── 🗒️README.md             # Este archivo
+├── src/                             # Código fuente principal
+│   ├── __init__.py                  # Inicializador del paquete
+│   ├── main.py                      # Punto de entrada principal
+│   │
+│   ├── models/                      # Modelos de dominio
+│   │   ├── __init__.py
+│   │   └── artefacto.py             # Clase Artefacto con cálculos de consumo
+│   │
+│   └── services/                    # Lógica de negocio
+│       ├── __init__.py
+│       ├── conjuntos.py             # Gestión mediante teoría de conjuntos
+│       ├── conteo.py                # Análisis estadístico y conteo
+│       └── logica.py                # Sistema de recomendaciones (lógica)
+│
+├── tests/                           # Tests del sistema
+│   ├── __init__.py
+│   ├── conftest.py                  # Configuración de pytest (opcional)
+│   ├── test_basico.py               # Test rápido de funcionalidad
+│   └── test_sistema.py              # Tests completos del sistema
+│
+├── docs/                            # Documentación
+│   ├── INICIO_RAPIDO.md             # Guía rápida de inicio
+│   ├── DOCUMENTACION_TECNICA.md     # Documentación técnica detallada
+│   ├── RESUMEN.md                   # Resumen ejecutivo del proyecto
+│   └── diagramas/                   # Diagramas UML y visualizaciones
+│       └── diagrama_clases.wsd      # Diagrama de clases (PlantUML)
+│
+├── .gitignore                       # Archivos ignorados por Git
+├── setup.py                         # Configuración de instalación del paquete
+└── README.md                        # Este archivo (documentación raíz)
 ```
+
+### Organización por Capas
+
+#### **models/** - Capa de Dominio
+
+- Representa las entidades principales del sistema
+- `artefacto.py`: Define la clase `Artefacto` con sus propiedades y comportamientos
+
+#### **services/** - Capa de Lógica de Negocio
+
+- Contiene la lógica matemática y operaciones del sistema
+- `conjuntos.py`: Operaciones de teoría de conjuntos (∪, ∩, -, complemento)
+- `conteo.py`: Análisis estadístico y principios de conteo
+- `logica.py`: Sistema de recomendaciones basado en lógica proposicional
+
+#### **tests/** - Capa de Pruebas
+
+- Tests automatizados para validar el sistema
+- Separados del código fuente para mejor organización
+
+#### **docs/** - Documentación
+
+- Toda la documentación del proyecto centralizada
+- Incluye guías, diagramas y referencias técnicas
 
 ---
 
@@ -136,15 +184,42 @@ ABP-Matemática/
 
 ### Requisitos
 
-- Python 3.6 o superior
+- Python 3.8 o superior
+- pip (gestor de paquetes de Python)
 - No requiere librerías externas
+
+### Instalación
+
+1. **Clonar o descargar el repositorio:**
+
+```bash
+cd ABP-Matemática
+```
+
+2. **Instalar el paquete en modo desarrollo:**
+
+```bash
+pip install -e .
+```
+
+Esto permite que Python reconozca el paquete `consumo_hogareno` y sus módulos.
 
 ### Ejecución
 
-1. Ejecutar el programa principal:
+1. **Ejecutar el programa principal:**
 
 ```bash
-python main.py
+python src/main.py
+```
+
+2. **Ejecutar los tests:**
+
+```bash
+# Test rápido
+python tests/test_basico.py
+
+# Test completo
+python tests/test_sistema.py
 ```
 
 ---
@@ -186,27 +261,27 @@ Tipo: Electrodoméstico
 
 ### 2. Ver Artefactos
 
-Lista todos los artefactos registrados con su información completa.
+- Lista todos los artefactos registrados con su información completa.
 
 ### 3. Consultas por Conjuntos
 
-Operaciones matemáticas con los artefactos:
+- Operaciones matemáticas con los artefactos:
 
 #### 3.1 Ver por ubicación
 
-Filtra artefactos de una ubicación específica.
+- Filtra artefactos de una ubicación específica.
 
 #### 3.2 Ver por tipo
 
-Filtra artefactos de un tipo específico.
+- Filtra artefactos de un tipo específico.
 
 #### 3.3 Ver por nivel de consumo
 
-Filtra por ALTO, MEDIO o BAJO consumo.
+- Filtra por ALTO, MEDIO o BAJO consumo.
 
 #### 3.4 Unión (A ∪ B)
 
-Muestra artefactos que cumplen una condición U otra.
+- Muestra artefactos que cumplen una condición U otra.
 
 **Ejemplo:**
 
@@ -217,7 +292,7 @@ Cocina ∪ Alto_Consumo
 
 #### 3.5 Intersección (A ∩ B)
 
-Muestra artefactos que cumplen ambas condiciones.
+- Muestra artefactos que cumplen ambas condiciones.
 
 **Ejemplo:**
 
@@ -228,11 +303,11 @@ Cocina ∩ Alto_Consumo
 
 #### 3.6 Diferencia (A - B)
 
-Elementos en A que no están en B.
+- Elementos en A que no están en B.
 
 #### 3.7 Complemento (U - A)
 
-Todos los artefactos excepto los de A.
+- Todos los artefactos excepto los de A.
 
 # 4. Análisis Estadístico
 
@@ -266,13 +341,13 @@ Acción recomendada: Evita usar varios simultáneamente.
 
 # 6. Reporte Completo
 
-Combina todos los análisis en un reporte único.
+- Combina todos los análisis en un reporte único.
 
 ---
 
 # 7. Cargar Datos de Ejemplo
 
-Carga 10 artefactos de ejemplo para probar el sistema.
+- Carga 10 artefactos de ejemplo para probar el sistema.
 
 ---
 

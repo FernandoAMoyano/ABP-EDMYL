@@ -10,15 +10,21 @@ Autor:
 
 import os
 import sys
+from pathlib import Path
 from typing import List
 
-# Agregar el directorio src al path para los imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+# Configurar path del proyecto ANTES de importar los módulos
+src_path = Path(__file__).resolve().parent
+if str(src_path) not in sys.path:
+    sys.path.insert(0, str(src_path))
 
-from consumo_hogareno.models.artefacto import Artefacto
-from consumo_hogareno.services.conjuntos import GestorConjuntos
-from consumo_hogareno.services.conteo import AnalizadorConteo
-from consumo_hogareno.services.logica import SistemaLogico
+# Ahora sí importar los módulos del proyecto
+# ruff: noqa: E402
+
+from models.artefacto import Artefacto
+from services.conjuntos import GestorConjuntos
+from services.conteo import AnalizadorConteo
+from services.logica import SistemaLogico
 
 
 def limpiar_pantalla() -> None:

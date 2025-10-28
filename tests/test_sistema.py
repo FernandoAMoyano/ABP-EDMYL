@@ -4,10 +4,21 @@ Archivo de pruebas para verificar el correcto funcionamiento del sistema
 Este archivo puede ejecutarse para validar que todos los módulos funcionen correctamente
 """
 
-from consumo_hogareno.models.artefacto import Artefacto
-from consumo_hogareno.services.conjuntos import GestorConjuntos
-from consumo_hogareno.services.conteo import AnalizadorConteo
-from consumo_hogareno.services.logica import SistemaLogico
+import sys
+from pathlib import Path
+
+# Configurar path del proyecto ANTES de importar los módulos
+src_path = Path(__file__).resolve().parent.parent / "src"
+if str(src_path) not in sys.path:
+    sys.path.insert(0, str(src_path))
+
+# Ahora sí importar los módulos del proyecto
+# ruff: noqa: E402
+
+from models.artefacto import Artefacto
+from services.conjuntos import GestorConjuntos
+from services.conteo import AnalizadorConteo
+from services.logica import SistemaLogico
 
 
 def test_artefacto():
